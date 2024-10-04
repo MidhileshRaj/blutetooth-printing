@@ -25,9 +25,10 @@ class FilePickerDemoState extends State<FilePickerDemo> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         floatingActionButton: FloatingActionButton(onPressed: () async {
-          result = await FilePicker.platform
-              .pickFiles(allowMultiple: true);
+          // result = await FilePicker.platform
+          //     .pickFiles(allowMultiple: true);
           if (result == null) {
+            _displayPdf();
           } else {
             setState(() {});
           }
@@ -110,7 +111,7 @@ class FilePickerDemoState extends State<FilePickerDemo> {
     }
   }
 
-  void _displayPdf(PlatformFile file) {
+  void _displayPdf([PlatformFile? file]) {
     // Display the PDF in a preview screen using flutter_pdfview
     Navigator.push(
       context,
